@@ -423,6 +423,44 @@ st.markdown("""
     .stRadio > label { color: #ffffff; font-weight: bold; }
     
     /* Buttons */
+    /* Force sidebar text to be white */
+    [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] label {
+        color: #FFFFFF !important;
+    }
+    
+    /* VoltSafe Green for headers and highlights */
+    h1, h2, h3 {
+        color: #00E676 !important;
+    }
+    
+    /* Progress Bar */
+    .stProgress > div > div > div > div {
+        background-color: #00E676;
+    }
+    
+    /* Primary Button (Green) */
+    div.stButton > button:first-child {
+        background-color: #00E676;
+        color: black;
+        border: none;
+        font-weight: bold;
+    }
+    div.stButton > button:hover {
+        background-color: #00C853;
+        color: black;
+    }
+    
+    /* Secondary Button (Red/Back) */
+    div.stButton > button:nth-child(2) {
+        background-color: #FF5252;
+        color: white;
+    }
+
+    /* Expander Text in Sidebar */
+    .streamlit-expanderHeader {
+        color: #FFFFFF !important;
+        font-weight: bold;
+    }
     .stButton>button { 
         background-color: #00ff9d; 
         color: #000000; 
