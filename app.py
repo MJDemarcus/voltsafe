@@ -407,7 +407,7 @@ def generate_excel_matrix(risk_profile, content_map):
 # ==========================================
 # 5. UI CONTROLLER (app.py)
 # ==========================================
-st.set_page_config(page_title="VoltSafe Systems v1.2", page_icon="⚡", layout="centered")
+st.set_page_config(page_title="VoltSafe Systems v1.3", page_icon="⚡", layout="centered")
 
 
 st.markdown("""
