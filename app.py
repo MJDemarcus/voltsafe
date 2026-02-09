@@ -407,95 +407,66 @@ def generate_excel_matrix(risk_profile, content_map):
 # ==========================================
 # 5. UI CONTROLLER (app.py)
 # ==========================================
-st.set_page_config(page_title="VoltSafe Systems", page_icon="⚡", layout="centered")
+st.set_page_config(page_title="VoltSafe Systems v1.2", page_icon="⚡", layout="centered")
+
 
 st.markdown("""
 <style>
-    /* 1. MAIN BACKGROUND & TEXT */
-    .stApp {
-        background-color: #000000;
-        color: #ffffff;
+    /* 1. FORCE THE SIDEBAR TEXT TO BE VISIBLE */
+    /* This overrides the default that might be too dark */
+    section[data-testid="stSidebar"] * {
+        color: #FFFFFF !important;
     }
-    
-    /* Force all basic text to be white for readability */
-    p, span, label, div[data-testid="stMarkdownContainer"] p {
-        color: #ffffff !important;
-    }
-    
-    /* 2. SIDEBAR STYLING */
-    [data-testid="stSidebar"] {
-        background-color: #111111;
-        border-right: 1px solid #333;
-    }
-    
-    /* 3. HEADERS (VoltSafe Green) */
+
+    /* 2. MAKE HEADERS GREEN */
     h1, h2, h3, h4, h5, h6, strong {
         color: #00E676 !important;
     }
-    
-    /* 4. INPUTS & RADIO BUTTONS */
-    /* Unchecked Radio */
-    div[role="radiogroup"] label > div:first-child {
-        border-color: #555 !important;
-        background-color: transparent !important;
-    }
-    /* Checked Radio - FORCE GREEN to kill the Red */
+
+    /* 3. MAKE RADIO BUTTONS GREEN (AND TEXT WHITE) */
     div[role="radiogroup"] label > div:first-child[aria-checked="true"] {
         background-color: #00E676 !important;
         border-color: #00E676 !important;
     }
-    /* The inner dot of the radio button */
+    /* Inner dot */
     div[role="radiogroup"] label > div:first-child[aria-checked="true"] > div {
         background-color: #000000 !important;
     }
-    
-    /* Selectbox Text */
-    div[data-baseweb="select"] > div {
-        background-color: #222;
-        color: white;
-        border-color: #444;
+    /* Text next to radio */
+    div[role="radiogroup"] label p {
+        color: #FFFFFF !important;
+        font-weight: 500;
     }
-    
-    /* 5. BUTTONS */
-    /* Primary (Next/Download) - Green */
+
+    /* 4. BUTTONS - CLEAN AND CONTRAST */
+    /* Primary (Green) */
     div.stButton > button:first-child {
         background-color: #00E676 !important;
         color: #000000 !important;
         font-weight: 800 !important;
         border: none !important;
-        border-radius: 6px !important;
+        border-radius: 4px !important;
+        transition: all 0.2s;
     }
     div.stButton > button:first-child:hover {
+        transform: scale(1.02);
         background-color: #00C853 !important;
-        color: #000000 !important;
+        box-shadow: 0 0 10px #00E676;
     }
-    
-    /* Secondary (Back) - Red */
+
+    /* Secondary (Red) */
     div.stButton > button:nth-child(2) {
         background-color: #FF5252 !important;
         color: white !important;
+        border-radius: 4px !important;
     }
-    
-    /* 6. PROGRESS BAR */
-    .stProgress > div > div > div > div {
-        background-color: #00E676 !important;
-    }
-    
-    /* 7. ALERTS & METRICS */
-    .stAlert {
-        background-color: #111;
-        border: 1px solid #333;
-    }
+
+    /* 5. METRICS & PROGRESS */
     [data-testid="stMetricValue"] {
         color: #00E676 !important;
     }
-    [data-testid="stMetricLabel"] {
-        color: #aaaaaa !important;
-    }
-    
-    /* 8. DATAFRAME */
-    [data-testid="stDataFrame"] {
-        border: 1px solid #333;
+    .stProgress > div > div > div > div {
+        background-color: #00E676 !important;
     }
 </style>
 """, unsafe_allow_html=True)
