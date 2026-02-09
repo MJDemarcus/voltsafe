@@ -349,7 +349,7 @@ def generate_sms_pdf(answers, risk_profile, content_map, content_blocks):
             pdf.multi_cell(0, 7, txt=block['body'].strip())
             pdf.ln(10)
 
-    return bytes(pdf.output())
+    return pdf.output(dest='S').encode('latin-1')
 
 # ==========================================
 # 4. EXCEL GENERATION (excel_gen.py)
