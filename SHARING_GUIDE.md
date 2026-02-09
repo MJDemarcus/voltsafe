@@ -19,9 +19,9 @@ If you want to send the app to someone who has Python installed:
 4. They run `python3 -m streamlit run app.py`.
 
 ## Option 3: Deploy to the Web (Professional)
-To make the app accessible to anyone via a public link (like `https://voltsafe.streamlit.app`):
-1. Create a **GitHub Account**.
-2. Upload this code to a new repository.
-3. Sign up for [Streamlit Community Cloud](https://streamlit.io/cloud).
-4. Connect it to your GitHub repository.
-5. It will give you a permanent link to share with anyone.
+To make the app accessible to anyone via a public link:
+https://voltsafe-systems.streamlit.app
+
+1. The app is hosted on your GitHub repository `MJDemarcus/voltsafe`.
+2. Any changes you push to GitHub will automatically update the live app.
+

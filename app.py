@@ -411,78 +411,92 @@ st.set_page_config(page_title="VoltSafe Systems", page_icon="⚡", layout="cente
 
 st.markdown("""
 <style>
-    /* Main Background */
-    .stApp { background-color: #050505; color: #ffffff; }
-    
-    /* Sidebar */
-    [data-testid="stSidebar"] { background-color: #101010; border-right: 1px solid #222; }
-    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3 { color: #ffffff; }
-    
-    /* Inputs */
-    .stRadio > div { background-color: transparent; }
-    .stRadio > label { color: #ffffff; font-weight: bold; }
-    
-    /* Buttons */
-    /* Force sidebar text to be white */
-    [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] label {
-        color: #FFFFFF !important;
+    /* 1. MAIN BACKGROUND & TEXT */
+    .stApp {
+        background-color: #000000;
+        color: #ffffff;
     }
     
-    /* VoltSafe Green for headers and highlights */
-    h1, h2, h3 {
+    /* Force all basic text to be white for readability */
+    p, span, label, div[data-testid="stMarkdownContainer"] p {
+        color: #ffffff !important;
+    }
+    
+    /* 2. SIDEBAR STYLING */
+    [data-testid="stSidebar"] {
+        background-color: #111111;
+        border-right: 1px solid #333;
+    }
+    
+    /* 3. HEADERS (VoltSafe Green) */
+    h1, h2, h3, h4, h5, h6, strong {
         color: #00E676 !important;
     }
     
-    /* Progress Bar */
-    .stProgress > div > div > div > div {
-        background-color: #00E676;
+    /* 4. INPUTS & RADIO BUTTONS */
+    /* Unchecked Radio */
+    div[role="radiogroup"] label > div:first-child {
+        border-color: #555 !important;
+        background-color: transparent !important;
+    }
+    /* Checked Radio - FORCE GREEN to kill the Red */
+    div[role="radiogroup"] label > div:first-child[aria-checked="true"] {
+        background-color: #00E676 !important;
+        border-color: #00E676 !important;
+    }
+    /* The inner dot of the radio button */
+    div[role="radiogroup"] label > div:first-child[aria-checked="true"] > div {
+        background-color: #000000 !important;
     }
     
-    /* Primary Button (Green) */
-    div.stButton > button:first-child {
-        background-color: #00E676;
-        color: black;
-        border: none;
-        font-weight: bold;
-    }
-    div.stButton > button:hover {
-        background-color: #00C853;
-        color: black;
-    }
-    
-    /* Secondary Button (Red/Back) */
-    div.stButton > button:nth-child(2) {
-        background-color: #FF5252;
+    /* Selectbox Text */
+    div[data-baseweb="select"] > div {
+        background-color: #222;
         color: white;
-    }
-
-    /* Expander Text in Sidebar */
-    .streamlit-expanderHeader {
-        color: #FFFFFF !important;
-        font-weight: bold;
-    }
-    .stButton>button { 
-        background-color: #00ff9d; 
-        color: #000000; 
-        font-weight: bold; 
-        border: none; 
-        border-radius: 4px;
-        padding: 0.5rem 1rem;
-    }
-    .stButton>button:hover { 
-        background-color: #00cc7d; 
-        color: #000000;
-        border: none;
+        border-color: #444;
     }
     
-    /* Progress Bar */
-    .stProgress > div > div > div > div { background-color: #00ff9d; }
+    /* 5. BUTTONS */
+    /* Primary (Next/Download) - Green */
+    div.stButton > button:first-child {
+        background-color: #00E676 !important;
+        color: #000000 !important;
+        font-weight: 800 !important;
+        border: none !important;
+        border-radius: 6px !important;
+    }
+    div.stButton > button:first-child:hover {
+        background-color: #00C853 !important;
+        color: #000000 !important;
+    }
     
-    /* Selectbox in Sidebar */
-    [data-testid="stSidebar"] .stSelectbox label { color: #ffffff; }
+    /* Secondary (Back) - Red */
+    div.stButton > button:nth-child(2) {
+        background-color: #FF5252 !important;
+        color: white !important;
+    }
     
-    /* Alerts */
-    .stAlert { background-color: #1a1a1a; color: #ffffff; border: 1px solid #333; }
+    /* 6. PROGRESS BAR */
+    .stProgress > div > div > div > div {
+        background-color: #00E676 !important;
+    }
+    
+    /* 7. ALERTS & METRICS */
+    .stAlert {
+        background-color: #111;
+        border: 1px solid #333;
+    }
+    [data-testid="stMetricValue"] {
+        color: #00E676 !important;
+    }
+    [data-testid="stMetricLabel"] {
+        color: #aaaaaa !important;
+    }
+    
+    /* 8. DATAFRAME */
+    [data-testid="stDataFrame"] {
+        border: 1px solid #333;
+    }
 </style>
 """, unsafe_allow_html=True)
 
